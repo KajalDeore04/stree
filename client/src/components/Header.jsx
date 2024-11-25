@@ -117,7 +117,7 @@ function Header() {
                     className=" hover:bg-pink-700 text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium  flex gap-2 "
                   >
                     <img
-                    src="public/images/logIcon.png"
+                    src="/images/logIcon.png"
                     alt="main image"
                     className="w-6 h-full object-cover invert"
                   />Login

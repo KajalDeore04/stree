@@ -92,9 +92,9 @@ const IncidentForm = () => {
   };
 
   return (
-    <div style={containerStyles} className=''>
-      <div style={formContainerStyles} className='bg-white shadow-lg'>
-        <h2 style={{ textAlign: 'center',}} className='text-gray-900 text-xl m-3'>Report an Incident</h2>
+    <div style={containerStyles} className=' bg-black'>
+      <div style={formContainerStyles} className='bg-black shadow-lg mt-8'>
+        <h2 style={{ textAlign: 'center',}} className='text-pink-400 text-xl font-semibold m-3'>Report an Incident</h2>
         <form onSubmit={onSubmit} style={formStyles}>
           <div style={fieldContainer}>
             <label style={labelStyles} >Name</label>
@@ -110,6 +110,7 @@ const IncidentForm = () => {
           <div style={fieldContainer}>
             <label style={labelStyles}>Description</label>
             <textarea
+            placeholder='Description here...'
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               required
@@ -196,9 +197,9 @@ const IncidentForm = () => {
         </form>
       </div>
 
-      <div style={mapContainerStyles}>
+      <div className='mt-12' style={mapContainerStyles}>
         <MapContainer
-          center={[29.954880, 76.819534]}
+          center={[20.89777963258998, 74.77267383407136]}
           zoom={13}
           style={{ height: '100%', width: '100%' }}
         >
@@ -262,13 +263,13 @@ const textareaStyles = {
   fontSize: '14px',
   borderRadius: '4px',
   // border: '1px solid #ccc',
-  height: '100px',
+  height: '50px',
 };
 
 const smallButtonStyles = {
   padding: '5px 10px',
   fontSize: '14px',
-  borderRadius: '4px',
+  borderRadius: '30px',
   // backgroundColor: '#007BFF',
   color: 'white',
   border: 'none',
@@ -277,8 +278,8 @@ const smallButtonStyles = {
 };
 
 const inputStyles = {
-  padding: '10px',
-  fontSize: '10px',
+  padding: '4px',
+  fontSize: '16px',
   borderRadius: '4px',
   border: '1px solid #ccc',
   flex: '1', 
@@ -286,8 +287,8 @@ const inputStyles = {
 
 const buttonStyles = {
   padding: '8px',
-  fontSize: '9px',
-  borderRadius: '4px',
+  fontSize: '12px',
+  borderRadius: '30px',
   // backgroundColor: '#007BFF',
   color: 'white',
   border: 'none',
@@ -306,8 +307,13 @@ const submitButtonStyles = {
 };
 
 const locationTextStyles = {
-  // marginTop: '10px',
-  color: '#777',
+  marginTop: '20px',
+  color: '#fff',
+  marginRight:'auto',
+  marginLeft:'auto',
+  fontSize:'18px',
+  maxWidth:'250px',
+  lineHeight:'25px'
 };
 
 export default IncidentForm;

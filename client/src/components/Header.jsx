@@ -104,7 +104,7 @@ function Header() {
                   className=" hover:bg-pink-200 text-gray-300 hover:text-black px-3 py-2 rounded-md text-sm font-medium flex gap-2"
                 >
                   <img
-                    src="public/images/logout.png"
+                    src="/images/logout.png"
                     alt="main image"
                     className="w-6 h-full object-cover"
                   />Logout

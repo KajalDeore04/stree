@@ -66,9 +66,11 @@ function ContactUs() {
     };
 
     return (
-        <section className="bg-gray-100 py-10 mt-10">
-            <div className="max-w-7xl mx-auto px-4">
-                <h1 className="text-3xl font-bold text-center text-pink-900 mb-8">Contact Us</h1>
+        
+        <div className="bg-black">
+            <section className="bg-black py-10 mt-10">
+            <div className="max-w-7xl mx-auto px-4 mt-10">
+                <h1 className="text-3xl font-bold text-center text-pink-700 mb-8">Facing any issues?... Feel free to contact us!</h1>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                     {/* Contact Image */}
@@ -81,9 +83,9 @@ function ContactUs() {
                     </div>
 
                     {/* Contact Form */}
-                    <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg mx-auto">
+                    <form onSubmit={handleSubmit} className="bg-transparent border-pink-400 hover:border-[1px] rounded-[30px] p-6 shadow-lg shadow-pink-400 w-full max-w-lg mx-auto">
                         <div className="mb-4">
-                            <label htmlFor="userName" className="block text-sm font-semibold text-gray-700">
+                            <label htmlFor="userName" className="block text-sm font-semibold text-gray-400">
                                 Username
                             </label>
                             <input
@@ -100,7 +102,7 @@ function ContactUs() {
                         </div>
 
                         <div className="mb-4">
-                            <label htmlFor="email" className="block text-sm font-semibold text-gray-700">
+                            <label htmlFor="email" className="block text-sm font-semibold text-gray-400">
                                 Email
                             </label>
                             <input
@@ -117,7 +119,7 @@ function ContactUs() {
                         </div>
 
                         <div className="mb-6">
-                            <label htmlFor="message" className="block text-sm font-semibold text-gray-700">
+                            <label htmlFor="message" className="block text-sm font-semibold text-gray-400">
                                 Message
                             </label>
                             <textarea
@@ -133,7 +135,7 @@ function ContactUs() {
                         </div>
 
                         <div>
-                            <button type="submit" className="w-full py-3 bg-pink-500 text-white font-semibold rounded-lg hover:bg-pink-600 transition duration-300">
+                            <button type="submit" className="w-full rounded-[30px] py-3 bg-pink-500 text-white font-semibold hover:bg-pink-600 transition duration-300">
                                 Submit
                             </button>
                         </div>
@@ -141,6 +143,7 @@ function ContactUs() {
                 </div>
             </div>
         </section>
+        </div>
     );
 }
 

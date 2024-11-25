@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { WavyBackground } from './wavy-background';
 
 function MainContent() {
+  const [name, setName] = useState('');
   const [typedText, setTypedText] = useState('');
   const fullText = "  Report Any Incident, Anytime!";
 

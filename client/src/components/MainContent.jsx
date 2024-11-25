@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
 import { FaLongArrowAltRight } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
+import { WavyBackground } from './wavy-background';
 
 function MainContent() {
   const [typedText, setTypedText] = useState('');
-  const fullText = "  We're Here for You! Report Any Incident, Anytime";
+  const fullText = "  Report Any Incident, Anytime!";
 
   useEffect(() => {
     let index = 0;
@@ -22,12 +23,13 @@ function MainContent() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-900/95 text-white flex flex-col items-center justify-center py-16 px-8 lg:w-full">
-      <div className="flex flex-col md:flex-row items-start justify-between max-w-7xl mx-auto">
+    <WavyBackground className="max-w-6xl mx-auto ">
+    <div className="h-[80vh] bg-transparent relative text-white flex flex-col  justify-center py-16 px-8 lg:w-full">
+      <div className="flex flex-col md:flex-row items-start justify-between max-w-8xl mx-auto">
         {/* Left Content - Text and Buttons */}
-        <div className="md:w-1/2 flex flex-col text-left">
+        <div className="md:w-full flex flex-col text-left w-[550px]">
           <h1 className="text-7xl font-bold text-gradient font-extrabold">Stree</h1>
-          <p className="text-l mt-4">For our fierce warriors and their never diminishing light.</p>
+          
           <p className="text-2xl text-pink-300 mt-4">{typedText}</p>
 
           {/* Buttons in descending width */}
@@ -75,11 +77,12 @@ function MainContent() {
           <img
             src="/mainimg.png" 
             alt="main image"
-            className="w-full h-auto object-cover mt-10"
+            className="w-[415px] h-auto object-cover mt-10"
           />
         </div>
       </div>
     </div>
+    </WavyBackground>
   );
 }
 

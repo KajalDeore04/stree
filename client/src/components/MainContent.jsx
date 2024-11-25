@@ -29,7 +29,7 @@ function MainContent() {
       <div className="flex flex-col md:flex-row items-start justify-between max-w-8xl mx-auto">
         {/* Left Content - Text and Buttons */}
         <div className="md:w-full flex flex-col text-left w-[550px]">
-          <h1 className="text-7xl font-bold text-gradient font-extrabold">Stree</h1>
+          <h1 className="text-7xl text-gradient font-extrabold">Stree</h1>
           
           <p className="text-2xl text-pink-300 mt-4">{typedText}</p>
 

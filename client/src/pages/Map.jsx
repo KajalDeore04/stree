@@ -109,7 +109,7 @@ const Map = () => {
 
       
       {selectedIncident && (
-        <div className="z-50 top-1/2 left-1/2 absolute py-4 border bg-pink-700 rounded-[30px] px-5 border-black text-center text-white w-1/4 m-auto text-start transition-all delay-700 ease-in-out">
+        <div className="z-50 top-1/2 left-1/2 absolute py-4 border bg-pink-700 rounded-[30px] px-5 border-black  text-white w-1/4 m-auto text-start transition-all delay-700 ease-in-out">
           <div className='flex justify-between items-center'>
             <h3 className="text-lg font-semibold">Incident Details</h3>
             <button 

@@ -87,18 +87,18 @@ Stree is a platform focused on empowering women to take charge of their safety b
 
     ```bash
     cd server
-    npm run start:dev
+    nodemon index.js
     ```
 2. **Start the frontend**
 
     ```bash
-    cd ../client
+    cd client
     npm run dev
    ```
 
 ## Access the application
 
-- Open your browser and go to http://localhost:your_local_port to view the application.
+- Open your browser and go to http://localhost:5173 to view the application.
 
 
 

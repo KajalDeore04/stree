@@ -7,13 +7,11 @@
 Stree is a platform focused on empowering women to take charge of their safety by anonymously reporting crimes, accessing resources on tech communities, and growing within the tech industry. Through an interactive map, users can pinpoint and visualize crime incidents to identify safe and unsafe areas, fostering a supportive environment where women feel secure and informed.
 
 <br>
-
-
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
+![Image 1](https://i.ibb.co/ZWDtRJS/Screenshot-2024-12-02-193538.png)
+![Image 2](https://i.ibb.co/sVggft1/Screenshot-2024-12-02-193553.png)
+![Image 2](https://i.ibb.co/PwTnd5y/Screenshot-2024-12-02-193706.png)
+![Image 2](https://i.ibb.co/9rw3vjd/Screenshot-2024-12-02-193759.png)
+![Image 2](https://i.ibb.co/1RtBg12/Screenshot-2024-12-02-193815.png)
 ## Technologies Used
 
 ### Frontend

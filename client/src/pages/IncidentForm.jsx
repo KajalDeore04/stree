@@ -5,6 +5,7 @@ import 'leaflet/dist/leaflet.css';
 import { useAuth } from "../store/auth";
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 import { MdMyLocation } from "react-icons/md";
+import emailjs from 'emailjs-com';
 
 
 const IncidentForm = () => {
@@ -53,12 +54,12 @@ const IncidentForm = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-
+  
     if (latitude === null || longitude === null) {
       alert('Please select a valid location on the map.');
       return;
     }
-
+  
     const newIncident = {
       name,
       description,
@@ -70,19 +71,48 @@ const IncidentForm = () => {
         coordinates: [longitude, latitude], 
       },
     };
-    
+  
     try {
-      const config =  {
-          "headers": {
-            Authorization: `Bearer ${mytoken}`, 
-            "Content-Type": "application/json",
-      }};
-      const response = await axios.post(`${backendUrl}/api/incidents/addIncident`,newIncident,config);
+      const config = {
+        headers: {
+          Authorization: `Bearer ${mytoken}`, 
+          "Content-Type": "application/json",
+        }
+      };
+      const response = await axios.post(`${backendUrl}/api/incidents/addIncident`, newIncident, config);
       console.log('Incident saved:', response.data);
+  
+      const emailTemplateParams = {
+        to_name: "Admin", // Replace with the recipient's name if available
+        from_name: name, // Sender's name
+        user_email: user?.email || "test@example.com", // Sender's email
+        message: description, // Message content
+        category, // Incident category
+        date, // Date of the incident
+        time, // Time of the incident
+        latitude, // Latitude from map
+        longitude, // Longitude from map
+      };
+  
+      emailjs
+        .send(
+          'service_w5b3spm', // Replace with your EmailJS service ID
+          'template_qg5tkfq', // Replace with your EmailJS template ID
+          emailTemplateParams,
+          'Rp0u1FT-7l8uvI8yL' // Replace with your EmailJS user ID
+        )
+        .then((result) => {
+          console.log('Email sent:', result.text);
+          alert('Incident reported successfully and notification email sent!');
+        })
+        .catch((error) => {
+          console.error('EmailJS error:', error.text);
+          alert('Incident saved, but email notification failed.');
+        });
     } catch (error) {
       console.error('Error saving incident:', error);
     }
-
+  
     setDescription('');
     setCategory('mistreatment');
     setDate('');

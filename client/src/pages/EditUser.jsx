@@ -60,27 +60,31 @@ const EditUser = () => {
 
     return (
         <section className="edit-user-section">
-            <div className="container">
+            <div className="container-edit">
                 <h2>Edit User</h2>
                 <form onSubmit={handleSubmit}>
-                    <label>
-                        User Name:
+                    <div class="form-group">
+                        <label>
+                        Username
+                        </label>
                         <input
                             type="text"
                             name="userName"
                             value={user.userName}
                             onChange={handleInputChange}
                         />
-                    </label>
+                    </div>
+                    <div class="form-group">
                     <label>
-                        Email:
+                        Email
+                        </label>
                         <input
                             type="email"
                             name="email"
                             value={user.email}
                             onChange={handleInputChange}
-                        />
-                    </label>
+                            />
+                        </div>
                     <button type="submit">Update User</button>
                 </form>
             </div>

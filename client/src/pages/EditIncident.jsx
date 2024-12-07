@@ -83,8 +83,7 @@ const EditIncident = () => {
 
     return (
         <section className="edit-incident-section">
-            <div className="container">
-                <h2>Edit Incident</h2>
+            <div className="container-edit">
                 <form onSubmit={handleSubmit}>
                     {/* <label>
                         Name:
@@ -95,8 +94,10 @@ const EditIncident = () => {
                             readOnly
                         />
                     </label> */}
+                    <div className="form-group">
                     <label>
-                        Description:
+                        Description
+                        </label>
                         <textarea
                             type="text"
                             name="description"
@@ -104,9 +105,11 @@ const EditIncident = () => {
                             onChange={handleInputChange}
                             required
                         />
-                    </label>
+                    </div>
+                    <div className="form-group">
                     <label>
-                        Category:
+                        Category
+                        </label>
                         <select
                             name="category"
                             value={incident.category}
@@ -118,9 +121,11 @@ const EditIncident = () => {
                             <option value="cat-calling">Cat-calling</option>
                             <option value="shady-area">Shady Area</option>
                         </select>
-                    </label>
+                    </div>
+                    <div className="form-group">
                     <label>
-                        Date:
+                        Date
+                        </label>
                         <input
                             type="date"
                             name="date"
@@ -128,9 +133,11 @@ const EditIncident = () => {
                             onChange={handleInputChange}
                             required
                         />
-                    </label>
+                    </div>
+                    <div className="form-group">
                     <label>
-                        Time:
+                        Time
+                        </label>
                         <input
                             type="time"
                             name="time"
@@ -138,9 +145,12 @@ const EditIncident = () => {
                             onChange={handleInputChange}
                             required
                         />
-                    </label>
+                        </div>
+                        <div className="form-group">
                     <label>
-                        Latitude:
+                        
+                        Latitude
+                        </label>
                         <input
                             type="text"
                             name="latitude"
@@ -148,9 +158,11 @@ const EditIncident = () => {
                             onChange={handleInputChange}
                             required
                         />
-                    </label>
+                    </div>
+                    <div className="form-action">
                     <label>
-                        Longitude:
+                        Longitude
+                        </label>
                         <input
                             type="text"
                             name="longitude"
@@ -158,7 +170,7 @@ const EditIncident = () => {
                             onChange={handleInputChange}
                             required
                         />
-                    </label>
+                        </div>
                     <button type="submit">Update Incident</button>
                 </form>
             </div>

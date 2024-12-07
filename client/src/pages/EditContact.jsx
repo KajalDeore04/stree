@@ -62,7 +62,7 @@ const EditContact = () => {
 
     return (
         <section className="edit-user-section">
-            <div className="container">
+            <div className="container-edit">
                 <h2>Edit Contact</h2>
                 <form onSubmit={handleSubmit}>
                     <label>

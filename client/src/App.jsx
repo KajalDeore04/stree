@@ -23,6 +23,7 @@ const AdminUsers = React.lazy(() => import('./pages/AdminUsers'));
 const EditUser = React.lazy(() => import('./pages/EditUser')); // Import the EditUser component
 const EditIncident = React.lazy(() => import('./pages/EditIncident')); // Import the EditIncident component
 const EditContact = React.lazy(() => import('./pages/EditContact'));
+const AdminHeader = React.lazy(() => import('./components/AdminHeader')); // Admin header
 
 import Footer from './components/Footer';
 
@@ -33,13 +34,13 @@ function App() {
   const location = useLocation();
   
   const noHeaderFooterRoutes = ['/login', '/register'];
-
+  const adminRoutes = location.pathname.startsWith('/admin');
   const shouldHideHeaderFooter = noHeaderFooterRoutes.includes(location.pathname);
 
   return (
     <div className="app-container">
       <Suspense fallback={<Loading/>}>
-        {(!shouldHideHeaderFooter) ? <Header /> : null} {/* Conditionally render Header */}
+      {!shouldHideHeaderFooter && ( adminRoutes ? <AdminHeader /> : <Header />)} {/* Conditionally render Header */}
 
         <Routes>
           <Route path="/" element={<Home />} />
@@ -67,7 +68,7 @@ function App() {
         </Routes>
 
 
-        {(!shouldHideHeaderFooter) ? <Footer /> : null} {/* Conditionally render Footer */}
+        {!shouldHideHeaderFooter && !adminRoutes && <Footer />} {/* Conditionally render Footer */}
       </Suspense>
     </div>
   );

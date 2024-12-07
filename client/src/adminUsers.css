@@ -18,7 +18,7 @@ header {
 }
 
 .admin-users {
-    max-width: 80%;
+    max-width: 100%;
     margin: 0 auto;
     background: #1a1a1a;
     padding: 1rem; /* Reduced padding */

@@ -77,7 +77,7 @@ const AdminIncidents = () => {
                         {incidents.map((incident, index) => {
                             return (
                                 <tr key={index}>
-                                    <td>{incident.user.userName}</td>
+                                    <td>{incident.user ? incident.user.userName : 'Unknown User'}</td>
                                     <td>{incident.category}</td>
                                     <td>{incident.description}</td>
                                     <td>{incident.date.split('T')[0]}</td>

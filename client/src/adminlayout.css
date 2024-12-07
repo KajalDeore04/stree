@@ -1,3 +1,7 @@
+body{
+    background-color: black;
+}
+
 header {
     background-color: #1a1a1a;
     padding: 1rem 0;
@@ -42,7 +46,7 @@ nav ul li a svg {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .username-column {
@@ -73,8 +77,5 @@ nav ul li a svg {
     width: 130px;
 }
 
-.edit-delete{
-    width: 150px; 
-    background-color: magenta;
-}
+
 

@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 import { useAuth } from '../store/auth';
-import '../../src/adminUsers.css';
+import { FaEdit } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
 
 const AdminIncidents = () => {
     const { user, token } = useAuth();
@@ -19,12 +20,12 @@ const AdminIncidents = () => {
                 },
             };
             const response = await fetch(`${backendUrl}/api/admin/getAllIncidents`, config);
-            console.log("Token from admin", mytoken)
             const data = await response.json();
-            console.log("Data from admin", data)
-            // for(let i=0; i<31; i++)
-            //     console.log(data[22].user.userName);
-            setIncidents(data);
+            const updatedIncidents = data.map((incident) => ({
+                ...incident,
+                isExpanded: false,
+            }));
+            setIncidents(updatedIncidents);
         } catch (error) {
             console.error('Error fetching incidents: ', error);
         }
@@ -55,47 +56,55 @@ const AdminIncidents = () => {
     }, [token]);
 
     return (
-        <section className="admin-users-section">
+        <section className="admin-incidents-section">
             <div className="container">
-                <h1>Incidents Data</h1>
+                <h1 className="title">Incidents Data</h1>
             </div>
-            <div className="container admin-users">
-                <table>
-                    <thead>
-                        <tr>
-                            <th class="username-column">User Name</th>
-                            <th class="category-column">Category</th>
-                            <th class="description-column">Description</th>
-                            <th class="date-column">Date</th>
-                            <th class="time-column">Time</th>
-                            <th class="location-column">Location</th>
-                            <th class="update-column">Update</th>
-                            <th class="delete-column">Delete</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {incidents.map((incident, index) => {
-                            return (
-                                <tr key={index}>
-                                    <td>{incident.user ? incident.user.userName : 'Unknown User'}</td>
-                                    <td>{incident.category}</td>
-                                    <td>{incident.description}</td>
-                                    <td>{incident.date.split('T')[0]}</td>
-                                    <td>{incident.time}</td>
-                                    <td>{incident.location.coordinates[0]}, {incident.location.coordinates[1]}</td>
-                                    <td>
-                                        <Link to={`/admin/incidents/${incident._id}/edit`} className="edit-delete">
-                                            <button className="edit-delete" >Edit</button>
+            <div className="container incidents-table-container">
+                <div className="table-wrapper">
+                    <table className="incidents-table">
+                        <thead>
+                            <tr>
+                                <th className="table-cell">User Name</th>
+                                <th className="table-cell">Category</th>
+                                <th className="table-cell">Date</th>
+                                <th className="table-cell">Time</th>
+                                <th className="table-cell">Location</th>
+                                <th className="table-cell">Edit</th>
+                                <th className="table-cell">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {incidents.map((incident, index) => (
+                                <tr key={index} className="table-row">
+                                    <td className="table-cell">{incident.user ? incident.user.userName : 'Unknown User'}</td>
+                                    <td className="table-cell">{incident.category}</td>
+                                    <td className="table-cell">{incident.date.split('T')[0]}</td>
+                                    <td className="table-cell">{incident.time}</td>
+                                    <td className="table-cell">
+                                        <div className="location">
+                                            <span>{incident.location.coordinates[0]}</span>
+                                            <span>{incident.location.coordinates[1]}</span>
+                                        </div>
+                                    </td>
+                                    <td className="table-cell">
+                                        <Link to={`/admin/incidents/${incident._id}/edit`} className="edit-btn">
+                                            <button className="edit-btn-icon"><FaEdit /></button>
                                         </Link>
                                     </td>
-                                    <td><button className="edit-delete" onClick={() => deleteUser(incident._id)}>Delete</button></td>
+                                    <td className="table-cell">
+                                        <button 
+                                            className="delete-btn"
+                                            onClick={() => deleteUser(incident._id)}
+                                        >
+                                            <MdDelete />
+                                        </button>
+                                    </td>
                                 </tr>
-                            );
-                        }
-                        )}
-                    </tbody>
-                </table>
-
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
     );

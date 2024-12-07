@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useAuth } from '../store/auth';
 import { Link } from 'react-router-dom';
 import '../../src/adminUsers.css';
+import { FaEdit } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
+
+
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const AdminUsers = () => {
@@ -60,7 +64,7 @@ const AdminUsers = () => {
                             <tr>
                                 <th>User Name</th>
                                 <th>Email</th>
-                                <th>Update</th>
+                                <th>Edit</th>
                                 <th>Delete</th>
                             </tr>
                         </thead>
@@ -71,12 +75,14 @@ const AdminUsers = () => {
                                     <td>{user.email}</td>
                                     <td>
                                         <Link to={`/admin/users/${user._id}/edit`} className="edit-delete">
-                                            <button className="edit-delete" >Edit</button>
+                                            <button className="edit-delete" ><FaEdit />
+                                            </button>
                                         </Link>
                                     </td>
                                     <td>
-                                        <button className="edit-delete" onClick={() => deleteUser(user._id)}>
-                                            Delete
+                                        <button className="button2 edit-delete" onClick={() => deleteUser(user._id)}>
+                                        <MdDelete />
+
                                         </button>
                                     </td>
                                 </tr>

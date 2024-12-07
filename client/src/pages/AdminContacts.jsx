@@ -3,6 +3,8 @@ const backendUrl = import.meta.env.VITE_BACKEND_URL;
 import { useAuth } from '../store/auth';
 import '../../src/adminUsers.css';
 import { Link } from 'react-router-dom';
+import { FaEdit } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
 
 const AdminContacts = () => {
     const { user, token } = useAuth();
@@ -51,7 +53,7 @@ const AdminContacts = () => {
     }, []);
 
     return (
-        <section className="admin-users-section">
+        <section className="admin-contact-section">
             <div className="container">
                 <h1>Contacts Data</h1>
             </div>
@@ -76,10 +78,10 @@ const AdminContacts = () => {
                                     <td>{contact.message}</td>
                                     {/* <td><button className="edit-delete"> Edit</button></td> */}
                                     <td><Link to={`/admin/contacts/${contact._id}/edit`} className="edit-delete">
-                                            <button className="edit-delete" >Edit</button>
+                                            <button className="edit-delete" ><FaEdit /></button>
                                         </Link>
                                     </td>
-                                    <td><button className="edit-delete" onClick={() => deleteContacts(contact._id)}>Delete</button></td>
+                                    <td><button className="button2 edit-delete" onClick={() => deleteContacts(contact._id)}><MdDelete /></button></td>
                                 </tr>
                             );
                         }

@@ -35,6 +35,12 @@ function Header() {
               >
                 Home
               </Link>
+              <Link
+                to="/admin"
+                className="text-gray-300 hover:bg-pink-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+              >
+                Dashboard
+              </Link>
               
               {/* <Link to="/forum" className="text-gray-300 hover:bg-pink-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 Forum

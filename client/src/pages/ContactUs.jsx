@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"; 
+import { useState, useEffect } from "react";
 import { useAuth } from "../store/auth";
 import emailjs from 'emailjs-com'; // Import EmailJS SDK
 
@@ -39,25 +39,42 @@ function ContactUs() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Sending the email via EmailJS
         try {
-            const response = await emailjs.send(
+            // First, send the email via EmailJS
+            const emailResponse = await emailjs.send(
                 'service_wkh11q8', // Replace with your Service ID
                 'template_cgsuuwi', // Replace with your Template ID
                 contact, // Data from the form
                 'Rp0u1FT-7l8uvI8yL' // Replace with your User ID from EmailJS dashboard
             );
+            
+            console.log('Email sent successfully:', emailResponse);
 
-            console.log('Email sent successfully:', response);
-            alert("Your message has been sent.");
-
-            // Clear only the message field
-            setContact({
-                ...contact,
-                message: "",
+            // Then, save the data to the database
+            const response = await fetch(`${backendUrl}/api/contact/contactData`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(contact),
             });
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log("Data saved to database:", data);
+                alert("Your message has been sent");
+
+                // Clear only the message field
+                setContact({
+                    ...contact,
+                    message: "",
+                });
+            } else {
+                alert("Something went wrong while saving data. Please try again.");
+            }
+
         } catch (error) {
-            console.error('Error sending email:', error);
+            console.error('Error:', error);
             alert("Something went wrong. Please try again.");
         }
     };

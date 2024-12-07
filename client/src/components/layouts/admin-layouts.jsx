@@ -23,7 +23,7 @@ function AdminLayout() {
                 to="/admin/users"
                 className="mt-4 transform transition-all duration-300 hover:scale-105 "
               >
-                <div className="bg-transparent rounded-lg shadow-lg shadow-[1px_1px_11px_1px_rgb(249,_89,_164)] w-[550px] text-center overflow-hidden flex items-center justify-center">
+                <div className="bg-transparent rounded-lg shadow-[1px_1px_11px_1px_rgb(249,_89,_164)] w-[550px] text-center overflow-hidden flex items-center justify-center">
                   <div className="h-[220px] w-full flex flex-col justify-center items-center transform scale-[0.7]">
                     <AdminUsers />
                   </div>
@@ -35,7 +35,7 @@ function AdminLayout() {
                 to="/admin/incidents"
                 className="mt-4 transform transition-all duration-300 hover:scale-105"
               >
-                <div className="bg-transparent rounded-lg shadow-lg shadow-[1px_1px_11px_1px_rgb(249,_89,_164)] w-[520px] text-center overflow-hidden flex items-center justify-center">
+                <div className="bg-transparent rounded-lg  shadow-[1px_1px_11px_1px_rgb(249,_89,_164)] w-[520px] text-center overflow-hidden flex items-center justify-center">
                   <div className="h-[220px] w-full flex flex-col justify-center items-center transform scale-[0.6]">
                     <AdminIncidents />
                   </div>
@@ -47,7 +47,7 @@ function AdminLayout() {
                 to="/admin/contacts"
                 className="mt-4 transform transition-all duration-300 hover:scale-105"
               >
-                <div className="bg-transparent rounded-lg shadow-lg shadow-[1px_1px_11px_1px_rgb(249,_89,_164)] w-[600px] text-center overflow-hidden flex items-center justify-center">
+                <div className="bg-transparent rounded-lg shadow-[1px_1px_11px_1px_rgb(249,_89,_164)] w-[600px] text-center overflow-hidden flex items-center justify-center">
                   <div className="h-[220px] w-full flex flex-col justify-center items-center transform scale-[0.7]">
                     <AdminMessages />
                   </div>

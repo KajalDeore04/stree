@@ -35,7 +35,7 @@ app.use('/api/contact', contactRouters);
 
 app.use('/api/admin', adminRouter);
 
-app.get('/hello', (req, res) => {
+app.get('/', (req, res) => {
     res.send('Hello, World!');
 });
 

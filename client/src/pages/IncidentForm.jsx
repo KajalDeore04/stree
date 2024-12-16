@@ -83,13 +83,13 @@ const IncidentForm = () => {
       console.log('Incident saved:', response.data);
   
       const emailTemplateParams = {
-        to_name: "Admin", // Replace with the recipient's name if available
-        from_name: name, // Sender's name
-        user_email: user?.email || "test@example.com", // Sender's email
-        message: description, // Message content
-        category, // Incident category
-        date, // Date of the incident
-        time, // Time of the incident
+        to_name: "Admin", 
+        from_name: name, 
+        user_email: user?.email || "test@example.com", 
+        message: description, 
+        category, 
+        date, 
+        time,
         latitude, // Latitude from map
         longitude, // Longitude from map
       };

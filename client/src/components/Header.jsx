@@ -28,7 +28,7 @@ function Header() {
     <nav className="bg-transparent text-white fixed w-full mx-auto z-20">
       <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         <div className="bg-black max-w-5xl mx-auto flex items-center justify-center h-16 border-2 border-t-0 border--0 shadow-2xl shadow-zinc-700 border-pink-700 rounded-[30px]">
-          <div className="flex items-center p-20">
+          <div className="flex items-center px-20">
             <div className="hidden md:flex space-x-4">
               <Link
                 to="/"

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 import { useAuth } from '../store/auth';
-import '../../src/adminUsers.css';
-import { Link } from 'react-router-dom';
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 
@@ -21,9 +20,7 @@ const AdminContacts = () => {
                 },
             };
             const response = await fetch(`${backendUrl}/api/admin/getAllContactMessages`, config);
-            console.log("Token from contacts", mytoken)
             const data = await response.json();
-            console.log("Data from contacts", data)
             setContacts(data);
         } catch (error) {
             console.error('Error fetching contacts: ', error);
@@ -53,42 +50,48 @@ const AdminContacts = () => {
     }, []);
 
     return (
-        <section className="admin-contact-section">
-            <div className="container">
-                <h1>Contacts Data</h1>
+        <section className="bg-black rounded-3xl w-full max-w-4xl mx-auto p-5 shadow-lg shadow-pink-500/50 text-pink-700 mt-32">
+            <div className="mx-auto text-center">
+                <h1 className="text-4xl font-bold text-pink-700">Contacts Data</h1>
             </div>
-            <div className="container admin-users">
-                <table>
-                    <thead>
-                        <tr>
-                            <th className ="contact-name-col">User Name</th>
-                            <th className ="contact-email-col">Email</th>
-                            <th className ="contact-msg-col=">Message</th>
-                            <th className ="contact-msg-col=">Edit</th>
-                            <th className ="contact-msg-col=">Delete</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {contacts.map((contact, index) => {
-                            return (
-
-                                <tr key={index}>
-                                    <td>{contact.userName}</td>
-                                    <td>{contact.email}</td>
-                                    <td>{contact.message}</td>
-                                    {/* <td><button className="edit-delete"> Edit</button></td> */}
-                                    <td><Link to={`/admin/contacts/${contact._id}/edit`} className="edit-delete">
-                                            <button className="edit-delete" ><FaEdit /></button>
+            <div className="mx-auto mt-4">
+                <div className="max-h-96 overflow-y-auto">
+                    <table className="w-full border-collapse text-left">
+                        <thead>
+                            <tr>
+                                <th className="bg-gray-800 text-white p-4 uppercase text-base">User Name</th>
+                                <th className="bg-gray-800 text-white p-4 uppercase text-base">Email</th>
+                                <th className="bg-gray-800 text-white p-4 uppercase text-base">Message</th>
+                                <th className="bg-gray-800 text-white p-4 uppercase text-base">Edit</th>
+                                <th className="bg-gray-800 text-white p-4 uppercase text-base">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {contacts.map((contact, index) => (
+                                <tr key={index} className="border-b border-gray-700 hover:bg-gray-800">
+                                    <td className="p-4 text-base text-gray-300">{contact.userName}</td>
+                                    <td className="p-4 text-base text-gray-300">{contact.email}</td>
+                                    <td className="p-4 text-base text-gray-300">{contact.message}</td>
+                                    <td className="p-4">
+                                        <Link to={`/admin/contacts/${contact._id}/edit`}>
+                                            <button className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded">
+                                                <FaEdit />
+                                            </button>
                                         </Link>
                                     </td>
-                                    <td><button className="button2 edit-delete" onClick={() => deleteContacts(contact._id)}><MdDelete /></button></td>
+                                    <td className="p-4">
+                                        <button 
+                                            className="bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded"
+                                            onClick={() => deleteContacts(contact._id)}
+                                        >
+                                            <MdDelete />
+                                        </button>
+                                    </td>
                                 </tr>
-                            );
-                        }
-                        )}
-                    </tbody>
-                </table>
-
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
     );

@@ -56,45 +56,48 @@ const AdminIncidents = () => {
     }, [token]);
 
     return (
-        <section className="admin-incidents-section">
-            <div className="container">
-                <h1 className="title">Incidents Data</h1>
+        <section className="bg-black rounded-3xl w-full max-w-4xl mx-auto p-5 shadow-lg shadow-pink-500/50 text-pink-700 mt-32">
+            <div className="mx-auto text-center">
+                <h1 className="text-4xl font-bold text-pink-700">Incidents Data</h1>
             </div>
-            <div className="container incidents-table-container">
-                <div className="table-wrapper">
-                    <table className="incidents-table">
+            
+            <div className="mx-auto mt-4">
+                <div className="max-h-96 overflow-y-auto">
+                    <table className="w-full border-collapse text-left">
                         <thead>
-                            <tr>
-                                <th className="table-cell">User Name</th>
-                                <th className="table-cell">Category</th>
-                                <th className="table-cell">Date</th>
-                                <th className="table-cell">Time</th>
-                                <th className="table-cell">Location</th>
-                                <th className="table-cell">Edit</th>
-                                <th className="table-cell">Delete</th>
+                            <tr className="rounded-lg">
+                                <th className="bg-gray-800 text-white p-4 uppercase text-base">User Name</th>
+                                <th className="bg-gray-800 text-white p-4 uppercase text-base">Category</th>
+                                <th className="bg-gray-800 text-white p-4 uppercase text-base">Date</th>
+                                <th className="bg-gray-800 text-white p-4 uppercase text-base">Time</th>
+                                <th className="bg-gray-800 text-white p-4 uppercase text-base">Location</th>
+                                <th className="bg-gray-800 text-white p-4 uppercase text-base">Edit</th>
+                                <th className="bg-gray-800 text-white p-4 uppercase text-base">Delete</th>
                             </tr>
                         </thead>
                         <tbody>
                             {incidents.map((incident, index) => (
-                                <tr key={index} className="table-row">
-                                    <td className="table-cell">{incident.user ? incident.user.userName : 'Unknown User'}</td>
-                                    <td className="table-cell">{incident.category}</td>
-                                    <td className="table-cell">{incident.date.split('T')[0]}</td>
-                                    <td className="table-cell">{incident.time}</td>
-                                    <td className="table-cell">
-                                        <div className="location">
+                                <tr key={index} className="border-b border-gray-700 hover:bg-gray-800">
+                                    <td className="p-4 text-base text-gray-300">{incident.user ? incident.user.userName : 'Unknown User'}</td>
+                                    <td className="p-4 text-base text-gray-300">{incident.category}</td>
+                                    <td className="p-4 text-base text-gray-300">{incident.date.split('T')[0]}</td>
+                                    <td className="p-4 text-base text-gray-300">{incident.time}</td>
+                                    <td className="p-4 text-base text-gray-300">
+                                        <div className="flex flex-col">
                                             <span>{incident.location.coordinates[0]}</span>
                                             <span>{incident.location.coordinates[1]}</span>
                                         </div>
                                     </td>
-                                    <td className="table-cell">
-                                        <Link to={`/admin/incidents/${incident._id}/edit`} className="edit-btn">
-                                            <button className="edit-btn-icon"><FaEdit /></button>
+                                    <td className="p-4">
+                                        <Link to={`/admin/incidents/${incident._id}/edit`}>
+                                            <button className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded">
+                                                <FaEdit />
+                                            </button>
                                         </Link>
                                     </td>
-                                    <td className="table-cell">
+                                    <td className="p-4">
                                         <button 
-                                            className="delete-btn"
+                                            className="bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded"
                                             onClick={() => deleteUser(incident._id)}
                                         >
                                             <MdDelete />

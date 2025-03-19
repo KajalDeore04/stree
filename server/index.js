@@ -9,7 +9,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 const corsOptions = {
-    origin:  ["http://localhost:5173","https://stree-safety.vercel.app","https://stree.onrender.com"],
+    origin:  ["http://localhost:5173","https://stree-safety.vercel.app","https://stree-safety.onrender.com"],
     
     methods: "GET, POST, PUT, DELETE, PATCH",
     credentials: true,

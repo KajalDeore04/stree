@@ -57,7 +57,7 @@ function AdminLayout() {
           // </div>
           <AdminDashboard/>
         ) : (
-          <div className="h-full bg-black mx-auto max-w-[1000px]">
+          <div className="h-full bg-black mx-auto max-w-[1300px]">
           <Outlet />
           </div>
         )}

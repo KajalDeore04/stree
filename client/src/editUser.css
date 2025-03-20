@@ -7,7 +7,7 @@
 }
 
 .edit-incident-section {
-    margin-top: 50px;
+    margin-top: 150px;
     padding: 20px;
     background-color: transparent;
     width: 600px;
@@ -17,6 +17,7 @@
 }
 .edit-incident-section .container-edit{
     width: 900px;
+    margin: auto;
 }
 
 

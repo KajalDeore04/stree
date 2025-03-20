@@ -398,7 +398,7 @@ const AdminDashboard = () => {
                 </ResponsiveContainer>
               </div>
               <p className="text-white mt-2 text-sm">
-                Note: Contact data is distributed across dates since actual timestamps are not available.
+                {/* Note: Contact data is distributed across dates since actual timestamps are not available. */}
               </p>
             </div>
           </div>

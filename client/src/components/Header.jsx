@@ -4,6 +4,7 @@ import { IoMenu } from "react-icons/io5";
 import { RxCrossCircled } from "react-icons/rx";
 import { useAuth } from "../store/auth";
 import { IoMdArrowDropdown } from "react-icons/io";
+import GoogleTranslate from "./GoogleTranslate";
 
 
 function Header() {
@@ -90,6 +91,8 @@ function Header() {
               >
                 Contact us
               </Link>
+
+              <GoogleTranslate />
             </div>
 
             <div className="md:hidden">
